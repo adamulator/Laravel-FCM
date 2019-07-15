@@ -48,13 +48,6 @@ class Request extends BaseRequest
     protected $topic;
 
     /**
-     * @internal
-     *
-     * @var array|null
-     */
-    protected $config;
-
-    /**
      * Request constructor.
      *
      * @param                     $to
@@ -79,7 +72,6 @@ class Request extends BaseRequest
         $this->notification = $notification;
         $this->data = $data;
         $this->topic = $topic;
-        $this->config = $config;
     }
 
     /**
