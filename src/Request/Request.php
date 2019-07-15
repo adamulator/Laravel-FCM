@@ -70,9 +70,9 @@ class Request extends BaseRequest
 
         if (!is_null($config)) {
             // apply custom config
-
+            $this->config['server_key'] = $config['server_key'];
+            $this->config['sender_id'] = $config['sender_id'];
         }
-        dd($this->config);
 
         $this->to = $to;
         $this->options = $options;
