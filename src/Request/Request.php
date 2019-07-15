@@ -48,6 +48,13 @@ class Request extends BaseRequest
     protected $topic;
 
     /**
+     * @internal
+     *
+     * @var array|null
+     */
+    protected $config;
+
+    /**
      * Request constructor.
      *
      * @param                     $to
@@ -55,16 +62,24 @@ class Request extends BaseRequest
      * @param PayloadNotification $notification
      * @param PayloadData         $data
      * @param Topics|null         $topic
+     * @param array|null          $config
      */
-    public function __construct($to, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null, Topics $topic = null)
+    public function __construct($to, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null, Topics $topic = null, array $config = null)
     {
         parent::__construct();
+
+        if (!is_null($config)) {
+            // apply custom config
+
+        }
+        dd($this->config);
 
         $this->to = $to;
         $this->options = $options;
         $this->notification = $notification;
         $this->data = $data;
         $this->topic = $topic;
+        $this->config = $config;
     }
 
     /**

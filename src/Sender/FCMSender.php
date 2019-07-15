@@ -29,10 +29,11 @@ class FCMSender extends HTTPSender
      * @param Options|null             $options
      * @param PayloadNotification|null $notification
      * @param PayloadData|null         $data
+     * @param array|null               $config
      *
      * @return DownstreamResponse|null
      */
-    public function sendTo($to, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null)
+    public function sendTo($to, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null, array $config = null)
     {
         $response = null;
 
@@ -51,7 +52,7 @@ class FCMSender extends HTTPSender
                 }
             }
         } else {
-            $request = new Request($to, $options, $notification, $data);
+            $request = new Request($to, $options, $notification, $data, null, $config);
             $responseGuzzle = $this->post($request);
 
             $response = new DownstreamResponse($responseGuzzle, $to);
